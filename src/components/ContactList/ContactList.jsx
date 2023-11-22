@@ -5,6 +5,7 @@ import { AiOutlineClose } from 'react-icons/ai';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { deleteContact, fetchContacts } from 'redux/operations';
+import { Container } from '../../pages/Auth.styled';
 import {
   selectIsLoading,
   selectVisibleContacts,
@@ -14,9 +15,9 @@ import {
 import {
   ContactsList,
   ContactItem,
-  Button,
+  ButtonStyle,
   ContactNameBox,
-} from './ContactList.styled';
+} from './ContacList.styled';
 
 export const ContactList = () => {
   const isLoading = useSelector(selectIsLoading);
@@ -33,28 +34,30 @@ export const ContactList = () => {
     <>
       {isLoading && <p>Data is loading</p>}
       {error && <p>{error}</p>}
-      <ContactsList>
-        {contacts.length > 0 &&
-          contacts.map(({ id, name, phone }) => {
-            return (
-              <ContactItem key={id}>
-                <ContactNameBox>
-                  <BsTelephoneFill style={{ color: '#2874A6' }} />
-                  {name} : {phone}
-                </ContactNameBox>
-                <Button onClick={() => dispatch(deleteContact(id))}>
-                  <AiOutlineClose
-                    style={{
-                      color: '#2874A6',
-                      width: '20px',
-                      height: '20px',
-                    }}
-                  />
-                </Button>
-              </ContactItem>
-            );
-          })}
-      </ContactsList>
+      <Container>
+        <ContactsList>
+          {contacts.length > 0 &&
+            contacts.map(({ id, name, number }) => {
+              return (
+                <ContactItem key={id}>
+                  <ContactNameBox>
+                    <BsTelephoneFill style={{ color: '#2874A6' }} />
+                    {name} : {number}
+                  </ContactNameBox>
+                  <ButtonStyle onClick={() => dispatch(deleteContact(id))}>
+                    <AiOutlineClose
+                      style={{
+                        color: '#2874A6',
+                        width: '20px',
+                        height: '20px',
+                      }}
+                    />
+                  </ButtonStyle>
+                </ContactItem>
+              );
+            })}
+        </ContactsList>
+      </Container>
     </>
   );
 };

@@ -11,8 +11,9 @@ export const Label = styled.label`
 export const Input = styled.input`
   width: 310px;
   height: 30px;
-  border: 1px solid #a1dfff;
+  border: 1px solid #049dd9;
   border-radius: 5px;
+  width: 455px;
 
   padding: 2px 5px;
 `;

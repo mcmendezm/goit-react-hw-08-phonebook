@@ -2,6 +2,15 @@ import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 
 import { addContact, fetchContacts, deleteContact } from './operations';
 
+//example from lesson
+// const extraOperations = [
+//   fetchContacts.pending,
+//   addContact.pending,
+//   deleteContact.pending,
+// ];
+// const getOperations = type =>
+//   isAnyOf(...extraOperations.map(operation => operation[type]));
+
 const contactsSlice = createSlice({
   name: 'contacts',
   initialState: {

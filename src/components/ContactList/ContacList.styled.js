@@ -3,10 +3,7 @@ import styled from 'styled-components';
 export const ContactsList = styled.ul`
   list-style: none;
   padding: 0;
-  margin-bottom: 0;
-  margin-top: 20px;
-  margin-right: 0;
-  width: 300px;
+  margin: 0;
 `;
 
 export const ContactItem = styled.li`
@@ -35,7 +32,7 @@ export const ContactNameBox = styled.div`
   align-items: center;
 `;
 
-export const Button = styled.button`
+export const ButtonStyle = styled.button`
   width: 20px;
   height: 20px;
   padding: 0;
